@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <style>
+      button{
+        background-color: white;
+        margin-left: 400px;
+        font-size: 20px;
+        color: black;
+      }
+
+      iframe{
+        width: 1350px;
+        height: 500px;
+      }
+      h1{
+        text-align: center;
+        font-family: sans-serif ;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Newspaper</h1>
+    <iframe id = "screen" src="https://www.abc.com.py/" ></iframe>
+    <br>
+    <button onclick = "atras(0)">Volver</button>
+    <button onclick = "siguiente(1)">Siguiente</button>
+    <script>
+      cont = 1;
+      pag = ["https://www.abc.com.py/", "https://www.ultimahora.com/"];
+      function atras(n){
+        cont+=n;
+        if (cont < 0){
+          cont = pag.length() - 1;
+        } 
+        else if (cont > pag.length() - 1){
+          cont = 0;
+        }
+        else{
+          cont = pag.length() - 1;
+        }
+        document.getElementById('screen').src = pag[cont];
+      }
+      function siguiente(n){
+        cont+=n
+        if(cont >= 0){
+          cont=pag.length()+1
+        }
+        else if(cont > pag.length() + 1 ){
+          cont=0
+        }
+        else{
+          cont=pag.length()+1
+        }
+        document.getElementById('screen').src = pag[cont];
+      }
+    </script>
+  </body>
+</html>
